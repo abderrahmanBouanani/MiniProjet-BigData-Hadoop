@@ -1,0 +1,8 @@
+# Ignorer les données lourdes
+data_local/
+*.log
+*.out
+
+# Ignorer les fichiers systèmes
+.DS_Store
+__pycache__/
