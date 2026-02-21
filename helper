@@ -1,0 +1,9 @@
+Pour démarrer l'agent :
+flume-ng agent \
+  --conf /etc/flume/conf \
+  --conf-file /home/hadoopuser/project/config/flume.conf \
+  --name agent1 \
+  -Dflume.root.logger=INFO,console
+Pour vérifier dans HDFS :
+hdfs dfs -ls /user/hadoopuser/project/logs/
+hdfs dfs -cat /user/hadoopuser/project/logs/$(date +%Y-%m-%d)/app_logs_*.log
