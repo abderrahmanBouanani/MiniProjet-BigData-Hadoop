@@ -43,35 +43,35 @@ def generate_log_line():
 
     if action in ["VIEW_PRODUCT", "ADD_TO_CART", "REMOVE_FROM_CART", "PURCHASE"]:
         message = (
-            f"{timestamp} [{level}] {service} - user={user} "
-            f"action={action} product={product} ip={ip} duration={duration_ms}ms"
-        )
+            "{timestamp} [{level}] {service} - user={user} "
+            "action={action} product={product} ip={ip} duration={duration_ms}ms"
+        ).format(**locals())
     elif action == "SEARCH":
         query = random.choice(PRODUCTS)
         results = random.randint(0, 200)
         message = (
-            f"{timestamp} [{level}] {service} - user={user} "
-            f"action={action} query={query} results={results} ip={ip} duration={duration_ms}ms"
-        )
+            "{timestamp} [{level}] {service} - user={user} "
+            "action={action} query={query} results={results} ip={ip} duration={duration_ms}ms"
+        ).format(**locals())
     elif action == "PAYMENT":
         amount = round(random.uniform(5.0, 1500.0), 2)
         status = random.choice(["SUCCESS", "FAILED", "PENDING"])
         message = (
-            f"{timestamp} [{level}] {service} - user={user} "
-            f"action={action} amount={amount}USD status={status} ip={ip} duration={duration_ms}ms"
-        )
+            "{timestamp} [{level}] {service} - user={user} "
+            "action={action} amount={amount}USD status={status} ip={ip} duration={duration_ms}ms"
+        ).format(**locals())
     elif action == "ERROR":
         error_codes = ["500", "503", "404", "401", "403"]
         code = random.choice(error_codes)
         message = (
-            f"{timestamp} [ERROR] {service} - user={user} "
-            f"action={action} error_code={code} ip={ip} duration={duration_ms}ms"
-        )
+            "{timestamp} [ERROR] {service} - user={user} "
+            "action={action} error_code={code} ip={ip} duration={duration_ms}ms"
+        ).format(**locals())
     else:
         message = (
-            f"{timestamp} [{level}] {service} - user={user} "
-            f"action={action} ip={ip} duration={duration_ms}ms"
-        )
+            "{timestamp} [{level}] {service} - user={user} "
+            "action={action} ip={ip} duration={duration_ms}ms"
+        ).format(**locals())
 
     return message
 
